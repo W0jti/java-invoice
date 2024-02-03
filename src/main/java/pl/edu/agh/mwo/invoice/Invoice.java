@@ -8,6 +8,16 @@ import pl.edu.agh.mwo.invoice.product.Product;
 public class Invoice {
     private Collection<Product> products;
 
+    private BigDecimal subTotal;
+
+    private  BigDecimal tax;
+
+    private  BigDecimal total;
+
+    public Invoice() {
+
+    }
+
     public void addProduct(Product product) {
         // TODO: implement
     }
@@ -17,14 +27,14 @@ public class Invoice {
     }
 
     public BigDecimal getSubtotal() {
-        return null;
+        return subTotal;
     }
 
     public BigDecimal getTax() {
-        return null;
+        return tax;
     }
 
     public BigDecimal getTotal() {
-        return null;
+        return subTotal.add(subTotal.multiply(tax));
     }
 }
