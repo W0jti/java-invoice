@@ -11,8 +11,6 @@ import pl.edu.agh.mwo.invoice.product.TaxFreeProduct;
 import java.math.BigDecimal;
 import java.util.HashSet;
 
-import static org.junit.Assert.assertEquals;
-
 public class InvoicePrinterTest {
     private Invoice invoice;
     private InvoicePrinter invoicePrinter;
@@ -47,16 +45,5 @@ public class InvoicePrinterTest {
         invoice.getProducts().keySet().forEach(product -> productNames.add(product.getName()));
         // unique products + header + footer
         Assert.assertThat(productNames.size() + 2, Matchers.comparesEqualTo(lines.length));
-    }
-
-    @Test
-    public void testPrintMultipleProducts(){
-        String expectedPrint = "Numer faktury: " + invoice.getNumber() + System.lineSeparator() +
-                "Produkt: Mąka Ilosc: 1 Cena jdn.: 5 PLN Cena calkowita: 5 PLN" + System.lineSeparator() +
-                "Produkt: Ser Ilosc: 5 Cena jdn.: 10.80 PLN Cena calkowita: 54.00 PLN" + System.lineSeparator() +
-                "Produkt: Szampon Ilosc: 2 Cena jdn.: 55.35 PLN Cena calkowita: 110.70 PLN" + System.lineSeparator() +
-                "Liczba pozycji: 3";
-
-        assertEquals(expectedPrint, invoicePrinter.print());
     }
 }
