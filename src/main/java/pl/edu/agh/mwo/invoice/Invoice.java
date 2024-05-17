@@ -53,4 +53,12 @@ public class Invoice {
     public int getNumber() {
         return number;
     }
+
+    public Map<Product, Integer> getProducts() {
+        return products;
+    }
+
+    public Integer countProducts() {
+        return products.size();
+    }
 }
